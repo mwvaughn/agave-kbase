@@ -173,3 +173,8 @@ curl -X GET -sku "vaughn" https://foundation.iplantc.org/apps-v1/apps/kbase_all_
 ```
 curl -X POST -sku "vaughn" -d "softwareName=kbase_all_entities_Genome-20130604&jobName=all_entities_Genome_fields&archive=1&requestedTime=00:20:00&fields=contigs,scientific_name" https://foundation.iplantc.org/apps-v1/job | python -mjson.tool
 ```
+
+## Share with Dennis Roberts
+```
+curl -sku "vaughn" -d "username=dennis&permission=READ_EXECUTE" https://foundation.iplantc.org/apps-v1/apps/kbase_all_entities_Genome-20130604/share
+```

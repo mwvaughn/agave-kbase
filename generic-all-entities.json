@@ -22,7 +22,7 @@
      "value":
         {"default":"",
          "type":"string",
-         "validator":"(,|pegs|rnas|scientific_name|complete|prokaryotic|dna_size|contigs|domain|gc_content|phenotype|md5|source_id)+",
+         "validator":",|pegs|rnas|scientific_name|complete|prokaryotic|dna_size|contigs|domain|gc_content|phenotype|md5|source_id",
          "required":false,
          "visible":true},
      "details":
