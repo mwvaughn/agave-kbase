@@ -1,0 +1,60 @@
+{"name":"kbase_all_entities_Scenario",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"all_entities_Scenario",
+ "longDescription":"A scenario is a partial instance of a subsystem with a\ndefined set of reactions. Each scenario converts input compounds to\noutput compounds using reactions. The scenario may use all of the\nreactions controlled by a subsystem or only some, and may also\nincorporate additional reactions. Because scenario names are not\nunique, the actual scenario ID is a number.",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/all_entities_Scenario.template",
+ "testPath":"templates/all_entities_Scenario.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|common_name)+"},"id":"fields","details":{"visible":"true","label":"Comma-separated set of fields to return. Specify this value or pass -a."}},
+    {"id":"a",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"Return all available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_all_entities_Scenario",
+     "value":
+        {"default":"stdout_all_entities_Scenario",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of all_entities_Scenario",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}

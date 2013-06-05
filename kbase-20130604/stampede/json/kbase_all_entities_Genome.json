@@ -1,11 +1,11 @@
 {"name":"kbase_all_entities_Genome",
  "parallelism":"SERIAL",
- "version":"20130604",
+ "version":"20130605",
  "helpURI":"http://kbase.science.energy.gov/",
  "label":"",
  "shortDescription":"all_entities_Genome",
- "longDescription":"Retrieve entities from Kbase Genome",
- "author":"Matthew Vaughn",
+ "longDescription":"The Kbase houses a large and growing set of genomes.  We\noften have multiple genomes that have identical DNA.  These usually\nhave distinct gene calls and annotations, but not always.  We\nconsider the Kbase to be a framework for managing hundreds of\nthousands of genomes and offering the tools needed to\nsupport compartive analysis on large sets of genomes,\nsome of which are virtually identical.",
+ "author":"Robert Olson",
  "datePublished":"06/04/2013",
  "tags":["kbase","cdm"],
  "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
@@ -17,19 +17,8 @@
  "checkpointable":"false",
  "modules":["purge","load TACC","load irods","swap intel gcc"],
  "inputs":[],
- "parameters":[
-    {"id":"fields",
-     "value":
-        {"default":"",
-         "type":"string",
-         "validator":"(,|pegs|rnas|scientific_name|complete|prokaryotic|dna_size|contigs|domain|gc_content|phenotype|md5|source_id)+",
-         "required":false,
-         "visible":true},
-     "details":
-        {"label":"Comma-separated set of fields to return. Specify this value or pass -a.",
-         "visible":true},
-     "semantics":
-        {"ontology":["xs:string"]}},
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|pegs|rnas|scientific_name|complete|prokaryotic|dna_size|contigs|domain|genetic_code|gc_content|phenotype|md5|source_id)+"},"id":"fields","details":{"visible":"true","label":"Comma-separated set of fields to return. Specify this value or pass -a."}},
     {"id":"a",
      "value":
         {"default":false,
@@ -54,6 +43,7 @@
          "description":""},
      "semantics":
         {"ontology":["xs:boolean"]}}],
+
  "outputs":[
     {"id":"stdout_all_entities_Genome",
      "value":

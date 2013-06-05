@@ -1,0 +1,60 @@
+{"name":"kbase_all_entities_SSCell",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"all_entities_SSCell",
+ "longDescription":"An SSCell (SpreadSheet Cell) represents a role as it occurs\nin a subsystem spreadsheet row. The key is a colon-delimited triple\ncontaining an MD5 hash of the subsystem ID followed by a genome ID\n(with optional region string) and a role abbreviation.",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/all_entities_SSCell.template",
+ "testPath":"templates/all_entities_SSCell.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|)+"},"id":"fields","details":{"visible":"true","label":"Comma-separated set of fields to return. Specify this value or pass -a."}},
+    {"id":"a",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"Return all available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_all_entities_SSCell",
+     "value":
+        {"default":"stdout_all_entities_SSCell",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of all_entities_SSCell",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}

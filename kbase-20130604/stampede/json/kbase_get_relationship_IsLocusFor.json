@@ -1,0 +1,62 @@
+{"name":"kbase_get_relationship_IsLocusFor",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"get_relationship_IsLocusFor",
+ "longDescription":"A feature is a set of DNA sequence fragments, the location of\nwhich are specified by the fields of this relationship. Most features\nare a single contiguous fragment, so they are located in only one\nDNA sequence; however, for search optimization reasons, fragments\nhave a maximum length, so even a single contiguous feature may\nparticipate in this relationship multiple times. Thus, it is better\nto use the CDMI API methods to get feature positions and sequences\nas those methods rejoin the fragements for contiguous features. A few\nfeatures belong to multiple DNA sequences. In that case, however, all\nthe DNA sequences belong to the same genome. A DNA sequence itself\nwill frequently have thousands of features connected to it.",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/get_relationship_IsLocusFor.template",
+ "testPath":"templates/get_relationship_IsLocusFor.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|id|source_id)+"},"id":"from_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the from-entity."}},
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|ordinal|begin|len|dir|to_link|from_link)+"},"id":"rel_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the relationship."}},
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|id|feature_type|source_id|sequence_length|function|alias)+"},"id":"to_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the to-entity."}},
+    {"id":"c",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"number"},
+     "details":
+        {"label":"Specify the column to use for the id lookup",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:integer"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_get_relationship_IsLocusFor",
+     "value":
+        {"default":"stdout_get_relationship_IsLocusFor",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of get_relationship_IsLocusFor",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}

@@ -1,0 +1,60 @@
+{"name":"kbase_all_entities_Annotation",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"all_entities_Annotation",
+ "longDescription":"An annotation is a comment attached to a feature.\nAnnotations are used to track the history of a feature's\nfunctional assignments and any related issues. The key is\nthe feature ID followed by a colon and a complemented ten-digit\nsequence number.",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/all_entities_Annotation.template",
+ "testPath":"templates/all_entities_Annotation.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|annotator|comment|annotation_time)+"},"id":"fields","details":{"visible":"true","label":"Comma-separated set of fields to return. Specify this value or pass -a."}},
+    {"id":"a",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"Return all available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_all_entities_Annotation",
+     "value":
+        {"default":"stdout_all_entities_Annotation",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of all_entities_Annotation",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}

@@ -1,0 +1,72 @@
+{"name":"kbase_get_entity_Publication",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"get_entity_Publication",
+ "longDescription":"Experimenters attach publications to experiments and\nprotocols. Annotators attach publications to ProteinSequences.\nThe attached publications give an ID (usually a\nDOI or Pubmed ID),  a URL to the paper (when we have it), and a title\n(when we have it). Pubmed IDs are given unmodified. DOI IDs\nare prefixed with [b]doi:[/b], e.g. [i]doi:1002385[/i].",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/get_entity_Publication.template",
+ "testPath":"templates/get_entity_Publication.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|title|link|pubdate)+"},"id":"fields","details":{"visible":"true","label":"Comma-separated set of fields to return. Specify this value or pass -a."}},
+    {"id":"a",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"Return all available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}},
+    {"id":"c",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"number"},
+     "details":
+        {"label":"Specify the column to use for the id lookup",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:integer"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_get_entity_Publication",
+     "value":
+        {"default":"stdout_get_entity_Publication",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of get_entity_Publication",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}

@@ -1,0 +1,60 @@
+{"name":"kbase_all_entities_ProteinSequence",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"all_entities_ProteinSequence",
+ "longDescription":"We use the concept of ProteinSequence as an amino acid\nstring with an associated MD5 value.  It is easy to access the\nset of Features that relate to a ProteinSequence.  While function\nis still associated with Features (and may be for some time),\npublications are associated with ProteinSequences (and the inferred\nimpact on Features is through the relationship connecting\nProteinSequences to Features).",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/all_entities_ProteinSequence.template",
+ "testPath":"templates/all_entities_ProteinSequence.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|sequence)+"},"id":"fields","details":{"visible":"true","label":"Comma-separated set of fields to return. Specify this value or pass -a."}},
+    {"id":"a",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"Return all available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_all_entities_ProteinSequence",
+     "value":
+        {"default":"stdout_all_entities_ProteinSequence",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of all_entities_ProteinSequence",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}

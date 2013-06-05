@@ -1,0 +1,62 @@
+{"name":"kbase_get_relationship_Summarizes",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"get_relationship_Summarizes",
+ "longDescription":"This relationship describes the statistical frequencies of the\nmost common alleles in various positions on the reference contig.",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/get_relationship_Summarizes.template",
+ "testPath":"templates/get_relationship_Summarizes.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|id|source_id|position|minor_AF|minor_allele|major_AF|major_allele|obs_unit_count)+"},"id":"from_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the from-entity."}},
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|position|to_link|from_link)+"},"id":"rel_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the relationship."}},
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|id|source_id)+"},"id":"to_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the to-entity."}},
+    {"id":"c",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"number"},
+     "details":
+        {"label":"Specify the column to use for the id lookup",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:integer"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_get_relationship_Summarizes",
+     "value":
+        {"default":"stdout_get_relationship_Summarizes",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of get_relationship_Summarizes",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}

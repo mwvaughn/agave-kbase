@@ -1,0 +1,72 @@
+{"name":"kbase_get_entity_Feature",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"get_entity_Feature",
+ "longDescription":"A feature (sometimes also called a gene) is a part of a\ngenome that is of special interest. Features may be spread across\nmultiple DNA sequences (contigs) of a genome, but never across more\nthan one genome. Each feature in the database has a unique\nID that functions as its ID in this table. Normally a Feature is\njust a single contigous region on a contig. Features have types,\nand an appropriate choice of available types allows the support\nof protein-encoding genes, exons, RNA genes, binding sites,\npathogenicity islands, or whatever.",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/get_entity_Feature.template",
+ "testPath":"templates/get_entity_Feature.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|feature_type|source_id|sequence_length|function|alias)+"},"id":"fields","details":{"visible":"true","label":"Comma-separated set of fields to return. Specify this value or pass -a."}},
+    {"id":"a",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"Return all available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}},
+    {"id":"c",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"number"},
+     "details":
+        {"label":"Specify the column to use for the id lookup",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:integer"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_get_entity_Feature",
+     "value":
+        {"default":"stdout_get_entity_Feature",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of get_entity_Feature",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}

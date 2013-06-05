@@ -1,0 +1,62 @@
+{"name":"kbase_get_relationship_Measures",
+ "parallelism":"SERIAL",
+ "version":"20130605",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"get_relationship_Measures",
+ "longDescription":"This relationship contains the measurement values of a trait on a specific observational Unit",
+ "author":"Robert Olson",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/get_relationship_Measures.template",
+ "testPath":"templates/get_relationship_Measures.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters": [
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|id|trait_name|unit_of_measure|TO_ID|protocol)+"},"id":"from_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the from-entity."}},
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|value|statistic_type|measure_id|to_link|from_link)+"},"id":"rel_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the relationship."}},
+    {"semantics":{"ontology":["xs:string"]},"value":{"visible":"true","required":"false","type":"string","default":"","validator":"(,|id|source_name|source_name2|plant_id)+"},"id":"to_fields","details":{"visible":"true","label":"Comma-separated set of fields to return from the to-entity."}},
+    {"id":"c",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"number"},
+     "details":
+        {"label":"Specify the column to use for the id lookup",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:integer"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+
+ "outputs":[
+    {"id":"stdout_get_relationship_Measures",
+     "value":
+        {"default":"stdout_get_relationship_Measures",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of get_relationship_Measures",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}
