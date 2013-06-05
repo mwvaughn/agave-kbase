@@ -12,7 +12,6 @@ tar -zxf kb.tgz
 echo "./kb" >> .iplant.archive
 
 BIN_HOME="kb/deployment/bin"
-%{BIN_NAME}
 
 # Run application
 set -x
