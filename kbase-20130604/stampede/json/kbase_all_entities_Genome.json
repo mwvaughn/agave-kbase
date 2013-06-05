@@ -1,0 +1,70 @@
+{"name":"kbase_all_entities_Genome",
+ "parallelism":"SERIAL",
+ "version":"20130604",
+ "helpURI":"http://kbase.science.energy.gov/",
+ "label":"",
+ "shortDescription":"all_entities_Genome",
+ "longDescription":"Retrieve entities from Kbase Genome",
+ "author":"Matthew Vaughn",
+ "datePublished":"06/04/2013",
+ "tags":["kbase","cdm"],
+ "ontology":["http://sswapmeet.sswap.info/agave/apps/Application"],
+ "executionHost":"stampede.tacc.xsede.org",
+ "executionType":"HPC",
+ "deploymentPath":"/iplant/home/vaughn/applications/kbase-20130604/stampede",
+ "templatePath":"templates/all_entities_Genome.template",
+ "testPath":"templates/all_entities_Genome.test.sh",
+ "checkpointable":"false",
+ "modules":["purge","load TACC","load irods","swap intel gcc"],
+ "inputs":[],
+ "parameters":[
+    {"id":"fields",
+     "value":
+        {"default":"",
+         "type":"string",
+         "validator":",|pegs|rnas|scientific_name|complete|prokaryotic|dna_size|contigs|domain|gc_content|phenotype|md5|source_id",
+         "required":false,
+         "visible":true},
+     "details":
+        {"label":"Comma-separated set of fields to return. Specify this value or pass -a.",
+         "visible":true},
+     "semantics":
+        {"ontology":["xs:string"]}},
+    {"id":"a",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"Return all available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}},
+    {"id":"show-fields",
+     "value":
+        {"default":false,
+         "validator":"",
+         "required":false,
+         "visible":true,
+         "type":"bool"},
+     "details":
+        {"label":"List the available fields",
+         "description":""},
+     "semantics":
+        {"ontology":["xs:boolean"]}}],
+ "outputs":[
+    {"id":"stdout_all_entities_Genome",
+     "value":
+        {"default":"stdout_all_entities_Genome",
+         "validator":"",
+         "required":true,
+         "visible":true},
+     "details":
+        {"label":"Output of all_entities_Genome",
+         "description":""},
+     "semantics":
+        {"ontology":["http://sswapmeet.sswap.info/mime/text/Tab-separated-values"],
+         "minCardinality":1,
+         "fileTypes":["tab-0"]}}]}
