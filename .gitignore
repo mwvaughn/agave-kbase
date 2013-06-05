@@ -1,2 +1,4 @@
 kbase-20130604/stampede/kb.tgz
 .DS_Store
+logs
+*.json
